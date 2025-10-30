@@ -3,7 +3,6 @@ import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Inter } from "next/font/google";
 
-// Inter variável -> expõe a CSS var --font-sans
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -12,7 +11,7 @@ const inter = Inter({
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
       <div className={`${inter.variable} font-sans`}>
         <Component {...pageProps} />
       </div>

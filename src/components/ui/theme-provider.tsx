@@ -1,4 +1,3 @@
-// src/components/ui/theme-provider.tsx
 "use client";
 
 import * as React from "react";
@@ -11,8 +10,8 @@ export function ThemeProvider({
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="system"
-      enableSystem
+      defaultTheme="light"
+      enableSystem={false}
       {...props}
     >
       {children}

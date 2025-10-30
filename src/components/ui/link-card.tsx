@@ -9,12 +9,15 @@ const linkCardVariants = cva(
   {
     variants: {
       variant: {
-        glass:
-          "border border-black/10 bg-white/30 backdrop-blur hover:bg-white/40 hover:border-black/20 transition-all",
+        glass: [
+          "border backdrop-blur transition-all",
+          "border-black bg-white/40 hover:bg-white/50 hover:border-black/40",
+          "dark:border-white/40 dark:bg-white/10 dark:hover:bg-white/40",
+        ].join(" "),
         default: "",
       },
       size: {
-        md: "h-16", // altura ajustada (um pouco maior)
+        md: "h-16",
         lg: "h-20",
       },
     },
@@ -44,20 +47,20 @@ export function LinkCard({
     <Card
       className={cn(
         linkCardVariants({ variant, size }),
-        "group rounded-lg border-zinc-400 shadow-sm"
+        "group rounded-lg shadow-sm"
       )}
     >
       <CardContent className="p-0 h-full">
         <Link
           href={href}
           className={cn(
-            "flex items-center justify-center w-full h-full px-6 text-center text-zinc-800 font-medium tracking-tight",
+            "flex items-center justify-center w-full h-full px-6 text-center font-medium tracking-tight",
+            "text-zinc-800 dark:text-zinc-100",
             "focus-visible:ring-2 focus-visible:ring-white/30 rounded-lg transition-transform hover:scale-[1.01]",
             className
           )}
           {...props}
         >
-          {/* brilho varrendo */}
           <span
             aria-hidden="true"
             className={cn(
@@ -67,7 +70,6 @@ export function LinkCard({
               "group-hover:opacity-100 group-hover:translate-x-full"
             )}
           />
-          {/* halo suave */}
           <span
             aria-hidden="true"
             className={cn(

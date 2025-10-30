@@ -88,15 +88,54 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-zinc-900;
+    background-image: url("/bg-desktop.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .dark body {
+    @apply bg-zinc-950 text-zinc-100;
+  }
+
+  .bg-overlay::before,
+  .dark .bg-overlay::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .bg-overlay::before {
+    background: radial-gradient(
+        80% 60% at 50% 10%,
+        rgba(255, 255, 255, 0.35) 0%,
+        rgba(255, 255, 255, 0) 60%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0)
+      );
+  }
+  .dark .bg-overlay::before {
+    background: radial-gradient(
+        80% 60% at 50% 10%,
+        rgba(0, 0, 0, 0.35) 0%,
+        rgba(0, 0, 0, 0) 60%
+      ),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
   }
 }
 
 /* tua utilidade do fundo */
 @layer utilities {
   .bg-radial-fade {
-    background:
-      radial-gradient(800px circle at 50% -20%, rgba(255, 255, 255, 0.10), transparent 40%),
+    background: radial-gradient(
+        800px circle at 50% -20%,
+        rgba(255, 255, 255, 0.1),
+        transparent 40%
+      ),
       linear-gradient(hsl(var(--background)), hsl(var(--background)));
   }
 }
