@@ -1,6 +1,21 @@
-import "@/styles/globals.css";
 import type { AppProps } from "next/app";
+import "@/styles/globals.css";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { Inter } from "next/font/google";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+// Inter variável -> expõe a CSS var --font-sans
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+      <div className={`${inter.variable} font-sans`}>
+        <Component {...pageProps} />
+      </div>
+    </ThemeProvider>
+  );
 }
