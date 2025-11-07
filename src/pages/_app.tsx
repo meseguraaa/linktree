@@ -17,7 +17,10 @@ export const metadata: Metadata = {
     title: "Bruno Leal | Links",
     description: "Acesse todos os meus links e redes sociais em um só lugar.",
     images: [
-      "https://images.prismic.io/linktree/aQPDr7pReVYa32qp_IMG_3332.JPG?auto=format,compress",
+      {
+        url: "/linktreen_brunoleal.png",
+        alt: "Preview do Linktree de Bruno Leal",
+      },
     ],
   },
 };
