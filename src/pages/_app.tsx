@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bruno Leal | Links",
     description: "Acesse todos os meus links e redes sociais em um só lugar.",
-    url: "https://linktree-pearl-omega.vercel.app/linktreen_brunoleal.png",
+    url: "https://linktree-pearl-omega.vercel.app",
     images: [
       {
         url: "https://linktree-pearl-omega.vercel.app/linktreen_brunoleal.png",
